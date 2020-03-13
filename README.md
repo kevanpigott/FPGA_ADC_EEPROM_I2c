@@ -2,31 +2,31 @@
 reads data from adc into FPGA writes that data onto EEPROM I2c
 FPGA explanation
 
-ADC_MCP3002_Controller
+<b>ADC_MCP3002_Controller:</b>
 	Communicates with real chip
 	Outputs 10 bits of data
 
-Ignore_2
+<b>Ignore_2:</b>
 	Drops the 2 lowest bits cause we dont need them
 
-displayEncoder/display
+<b>displayEncoder/display:</b>
 	Displays the current value read from the adc onto the HEX display
 	0 = 0V
 	255 = 5.5V (voltage out of FPGA is 5.5V)
-Virtual mem
+<b>Virtual mem:</b>
 	Saves 255 bytes read from adc
 
-EEPROM_TASK_MANAGER
+<b>EEPROM_TASK_MANAGER:</b>
 	Reads from virtual memory
 	Handles communication order
 	Sends a com[mand]  (an op code) to task_controller
 
-Task_controller
+<b>Task_controller:</b>
 	Turns a com[mand] into either a falling edge, rising edge, one or zero
 	Translates this into SDA and SCL
 
 
-Full process step by step
+<b>Full process step by step:</b>
 
 1.ADC_MCP3002 controller sneds start signal to ADC chip
 2.ADC chip sends data
